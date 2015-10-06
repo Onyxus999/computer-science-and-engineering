@@ -25,27 +25,37 @@ int main(void) {
 	long cred_num; 
 	int len_cred_num;
 
-	/* Values */
-	/* Note: Make cred_num user defined before final version */
-	cred_num = 8507437083;
+		/* Values */
+		/* Note: Make cred_num user defined before final version */
+		cred_num = 1234567890;
 
-	len_cred_num = count_digl(cred_num);
+		len_cred_num = count_digl(cred_num);
 
-	/* Variable: List of Digits of Credit Card Number */
+	/* Variable: List of Digits of Credit Card Number as String */
+	char charlst_cred_num[len_cred_num];
+
+		/* Value */
+		sprintf(charlst_cred_num, "%ld", cred_num);
+
+	/* Variable: List of Digits of Credit Card Number as Int */
 	int lst_cred_num[len_cred_num];
-	int i;
-	for (i = 0; i < len_cred_num; i++) {
-		printf("Got to the for loop");
-		/* Takes the number and modulos it by each power of 10 to obtain each digit */
-		lst_cred_num[i] = ((cred_num % (10 ^ (i + 1))) / (10 ^ i));
 
-	}
+		/* Value */
+		int i = 0;
+		for (i = 0; i < len_cred_num; i++) {
+			lst_cred_num[i] = charlst_cred_num[i] - '0';
 
-	i = 0;
-	for ( i = 0; i < len_cred_num; i++) {
-		printf("%i\n", lst_cred_num[i]);
+		}
 
-	}
+	/* Body */
+	
+		/* Print List of Digits */
+		i = 0;
+		for (i = 0; i < len_cred_num; i++) {
+			printf("%d", lst_cred_num[i]);
 
+		}
+		
+		printf("\n");
 	return 0;
 }
