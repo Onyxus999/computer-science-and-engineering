@@ -23,10 +23,10 @@ int count_digl(long num) {
 }
 
 /* Function: Turn a long into an array of digits */
-int * digitize(long num) {
+int digital(long num, int index) {
 	int len_num = count_digl(num);
 	char charlst_num[len_num];
-	static int lst_num[];
+	int lst_num[len_num];
 
 	
 	sprintf(charlst_num, "%ld", num); // Scan num into the char array charlst_num
@@ -38,7 +38,7 @@ int * digitize(long num) {
 
 	}
 
-	return lst_num;
+	return lst_num[index];
 
 }
 
@@ -53,16 +53,23 @@ int main(void) {
 	
 		/* Values */	
 			printf("Please enter a credit card number: ");
-			scanf("%ld", &cred_num);			
+			scanf("%ld", &cred_num);
+			len_cred_num = count_digl(cred_num);			
 
-			int *lst_cred_num; 
-			lst_cred_num = digitize(cred_num);			
+			int lst_cred_num[len_cred_num]; 
+			int i = 0;
+			for (i = 0; i < len_cred_num; i++) {
+				lst_cred_num[i] = digital(cred_num, i);
+				//printf("%d ", lst_cred_num[i]);
 
+			
+			}			
+			//return 0;
 		/* Print List of Digits */
 		
 		printf("The Card Number is: ");
 		
-		int i = 0;
+		i = 0;
 		for (i = 0; i < len_cred_num; i++) {
 			printf("%d", lst_cred_num[i]);
 
@@ -70,19 +77,27 @@ int main(void) {
 		
 		printf("\n");
 
-		printf("The sumed product is: ");
+		printf("The product list is: ");
 
 		i = 0;
 		int j = len_cred_num-2;
-		int sum = 0;
+		int k = 0;
+		int len_sum = (len_cred_num/2)/*+1*/;
+		int sum[len_sum];
+
 		for (i = 0; i < len_cred_num; i += 2) {
-			printf("The %d digit is %d\n", j, lst_cred_num[j]);
-			sum += (lst_cred_num[j]*2);
+			//printf("The %d digit is %d\n", j, lst_cred_num[j]);
+			sum[k] += (lst_cred_num[j]*2);
 			j -= 2;
+			k++;
 
 		}
 		
-		printf("%d\n", sum);
+		i = 0;
+		for (i = 0; i < len_sum; i++) {
+			printf("[%d] ", sum[i]);
+
+		}
 
 	return 0;
 }
