@@ -13,11 +13,17 @@ void clear(void)
 
 int main(void)
 {
-	
 	clear();
-	
-	printf("Enter a height: ");
-	int height = GetInt(); // get the height from the user
+
+	int height = 0;	
+	while (height <= 0 || height >= 24)
+	{
+		printf("Enter a height between 0 and 24: ");
+		height = GetInt(); // get the height from the user
+
+        if (height == 0) // bullshit
+            return 0; // bullshit
+	}
 
 	// yay, matracies!
 	// first allocate a height long array of pointers
@@ -60,8 +66,11 @@ int main(void)
 		
 		// for every collumn in reverse order
 		for (int j = height-1; j >= 0; j--)
-			// print out the block in reverse order
-			printf("%c", pyramid[i][j]);
+        {
+            if (pyramid[i][j] != ' ') // bullshit
+			    // print out the block in reverse order
+			    printf("%c", pyramid[i][j]);
+        }
 
 		printf("\n");
 	}
