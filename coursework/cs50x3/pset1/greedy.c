@@ -7,12 +7,19 @@ int main(void)
 	int money = -1;
 	int number_of_coins = 0;
     
-    while (money < 0)
+    while (money < 0) // keeps inputs from being negitive
     {
         printf("Enter what you would like change for: ");
-	    money = roundf(GetFloat()*100);
-    }
 	
+        // changes input into number of cents rounded to the nearest cent
+        money = roundf(GetFloat()*100);
+    }
+
+    /*    This block of code checks if the input is larger than a given coin
+     *    going from largest coin to smallest coin, and if it is, it 'uses'
+     *    that coin to make change. Removing it from the change needed, and
+     *    adding one coin to the pot
+     */
     while (money >= 25)
 	{
 		money -= 25;
@@ -38,6 +45,6 @@ int main(void)
 	}
     
     printf("%d\n", number_of_coins);
-	return 0;
+    return 0;
 
 }
