@@ -47,8 +47,6 @@ int main(void)
 				pyramid[i][j] = '#'; // make it a hash
 		}
 	}
-
-	printf("\n"); // make it look pretty
 	
 	// for every row
 	for (int i = 0; i < height; i++)
@@ -58,7 +56,7 @@ int main(void)
 			// print out the block in order
 			printf("%c", pyramid[i][j]);
 
-		printf(" "); // little gap
+		printf("  "); // little gap
 		
 		// for every collumn in reverse order
 		for (int j = height-1; j >= 0; j--)
