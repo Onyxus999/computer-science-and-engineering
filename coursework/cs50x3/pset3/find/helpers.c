@@ -17,18 +17,39 @@
  */
 bool search(int value, int values[], int n)
 {
-    // Linear search the list
-    // if it is in the list, return true
-    for (int i = 0; i < n; i++)
-    {
-        if (values[i] == value)
-        {
-            return true;
-        }
-    }
+	int median = 0;
+	for (int i = 0; i < n; i++)
+		median += values[i];
+	median /= n;
 
-    // if true was not returned, return false
-    return false;
+	int index = 0;
+	while (values[index] < median)
+	{
+		index++;
+	}
+
+	int key = median;
+	int new_values[n / 2];
+	if (value < values[index] && n > 1)
+	{
+		for (int i = 0; i < (n / 2); i++)
+			new_values[i] = values[i];
+		
+		search(value, new_values, (n / 2));
+
+	}
+	else if (value > values[index] && n > 1)
+	{
+		for (int i = 1; i < (n / 2); i++)
+			new_values[i - 1] = values[index + i];
+
+		search(value, new_values, (n / 2));
+	}
+	else
+		return true;
+
+	// if true was not returned, return false
+	return false;
 }
 
 /**
