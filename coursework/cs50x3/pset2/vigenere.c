@@ -31,12 +31,12 @@ int main(int argc, char* argv[])
 	else if (!isstring(argv[1]))
 	{
 		printf("vigenere:: Error: Key must be alphabetical\n");
-		return 2;
+		return 1;
 	}
 	else
 	{
 		char* key = argv[1];
-		printf("Enter text to encrypt: ");
+		//printf("Enter text to encrypt: ");
 		char* plaintext = GetString();
 
 		int* indexes = malloc(sizeof(int) * strlen(plaintext));
