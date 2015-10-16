@@ -36,7 +36,7 @@ int main(int argc, char* argv[])
 	else
 	{
 		int key = atoi(argv[1]);
-		printf("Enter text to encrypt: ");
+		//printf("Enter text to encrypt: ");
 		char* plaintext = GetString();
 		
 		int* indexes = malloc(sizeof(int) * strlen(plaintext));
