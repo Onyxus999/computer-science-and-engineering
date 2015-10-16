@@ -35,6 +35,22 @@ int main(int argc, char* argv[])
 	}
 	else
 	{
+		char* key = argv[1];
+		printf("Enter text to encrypt: ");
+		char* plaintext = GetString();
+
+		int* indexes = malloc(sizeof(int) * strlen(plaintext));
+		for (int i = 0; i < strlen(plaintext); i++)
+		{
+			if (isalpha(plaintext[i]))
+			{
+				indexes[i] = (plaintext[i] % 32) - 1;
+			}
+			else
+				indexes[i] = 42
+		}
+
+		char* cyphertext = malloc(sizeof(char) * strlen(plaintext));
 
 		return 0;
 	}

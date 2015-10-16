@@ -30,7 +30,7 @@ int main(int argc, char* argv[])
 	}
 	else if (!isnum(argv[1]))
 	{
-		printf("caesar:: Error: Please input an integer.\n");
+		printf("caesar:: Error: Please input an integer\n");
 		return 2;
 	}
 	else
@@ -51,7 +51,6 @@ int main(int argc, char* argv[])
 		}
 	
 		char* cyphertext = malloc(sizeof(char) * strlen(plaintext));
-		
 		for (int i = 0; i < strlen(plaintext); i++)
 		{
 			if (indexes[i] > 25)
