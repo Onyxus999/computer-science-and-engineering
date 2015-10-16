@@ -36,31 +36,41 @@ int main(int argc, char* argv[])
 	else
 	{
 		char* key = argv[1];
-		printf("Enter text to encrypt: ");
+		//printf("Enter text to encrypt: ");
 		char* plaintext = GetString();
 
-		int* indexes = malloc(sizeof(int) * strlen(plaintext));
+		int* plain_indexes = malloc(sizeof(int) * strlen(plaintext));
 		for (int i = 0; i < strlen(plaintext); i++)
 		{
 			if (isalpha(plaintext[i]))
 			{
-				indexes[i] = (plaintext[i] % 32) - 1;
+				plain_indexes[i] = (plaintext[i] % 32) - 1;
 			}
 			else
-				indexes[i] = 42;
+				plain_indexes[i] = 42;
 		}
 
+		int* key_indexes = malloc(sizeof(int) * strlen(key));
+		for (int i = 0; i < strlen(key); i++)
+			key_indexes[i] = (key[i] % 32) - 1;
+
 		char* cyphertext = malloc(sizeof(char) * strlen(plaintext));
-		for (int i = 0; i < strlen(plaintext); i++)
+		for (int i = 0, j = 0; i < strlen(plaintext); i++)
 		{
-			if (indexes[i] > 25)
+			if (plain_indexes[i] > 25)
 				cyphertext[i] = plaintext[i];
 			else
 			{
 				if (isupper(plaintext[i]))
-					cyphertext[i] = UPALPHA[(indexes[i] + key[i % strlen(key)]) % 26];
+				{
+					cyphertext[i] = UPALPHA[(plain_indexes[i] + key_indexes[j % strlen(key)]) % 26];
+					j++;
+				}
 				else
-					cyphertext[i] = LOALPHA[(indexes[i] + key[i % strlen(key)]) % 26];
+				{
+					cyphertext[i] = LOALPHA[(plain_indexes[i] + key_indexes[j % strlen(key)]) % 26];
+					j++;
+				}
 			}
 		}
 		
