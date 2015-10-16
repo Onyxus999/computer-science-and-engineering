@@ -25,12 +25,12 @@ int main(int argc, char* argv[])
 {
 	if (argc == 1 || argc > 2)
 	{
-		printf("argvTest:: Error: Must have exactly one argument\n");
+		printf("caesar:: Error: Must have exactly one argument\n");
 		return 1;
 	}
 	else if (!isnum(argv[1]))
 	{
-		printf("argvTest:: Error: Please input an integer.\n");
+		printf("caesar:: Error: Please input an integer.\n");
 		return 2;
 	}
 	else

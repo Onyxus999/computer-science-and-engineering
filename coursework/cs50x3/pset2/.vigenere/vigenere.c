@@ -4,8 +4,38 @@
 #include <ctype.h>
 #include <cs50.h>
 
+#define UPALPHA "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
+#define LOALPHA "abcdefghijklmnopqrstuvwxyz"
+
+int isstring(char* test_str)
+{
+        int is_string = 1;
+        for (int i = 0; i < strlen(test_str); i++)
+        {
+                if (!isalnum(test_str[i]))
+                        is_string = 0;
+                else if (isdigit(test_str[i]))
+                        is_number = 0;
+        }
+
+        return is_string;
+}
+
 int main(int argc, char* argv[])
 {
+	if (argc == 1 || argc > 2)
+	{
+		printf("vigenere:: Error: Must have exactly one argument\n");
+		return 1;	
+	}
+	else if (!isstring(argv[1]))
+	{
+		printf("vigenere:: Error: Key must be alphabetical\n");
+		return 2;
+	}
+	else
+	{
 
-	return 0;
+		return 0;
+	}
 }
