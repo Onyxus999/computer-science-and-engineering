@@ -24,12 +24,12 @@ bool search(int value, int values[], int size)
 	{
 		cursor = (start + (size - 1)) / 2;
 
-		if (values[cursor] < value)
+		if (values[cursor] > value)
 		{
 			size -= (cursor + 1);
 			cursor--;
 		}
-		else if (value[cursor] > value)
+		else if (values[cursor] < value)
 		{
 			start = (cursor + 1);
 			cursor++;

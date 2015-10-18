@@ -52,7 +52,7 @@ int main(int argc, string argv[])
     printf("\n");
 
     // sort the haystack
-    sort(haystack, size, 0);
+    sort(haystack, size);
 
     // try to find needle in haystack
     if (search(needle, haystack, size))
