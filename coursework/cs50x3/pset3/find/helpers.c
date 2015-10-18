@@ -15,41 +15,29 @@
 /**
  * Returns true if value is in array of n values, else false.
  */
-bool search(int value, int values[], int n)
+bool search(int value, int values[], int size)
 {
-	int median = 0;
-	for (int i = 0; i < n; i++)
-		median += values[i];
-	median /= n;
+	int cursor = 0;
+	int start = 0;
 
-	int index = 0;
-	while (values[index] < median)
+	while (value != values[cursor])
 	{
-		index++;
+		cursor = (start + (size - 1)) / 2;
+
+		if (values[cursor] < value)
+		{
+			
+		}
+		else if (value[cursor] > value)
+		{
+	
+		}
+
+		if (size < 1 || start >= size)
+			return false;
 	}
-
-	int key = median;
-	int new_values[n / 2];
-	if (value < values[index] && n > 1)
-	{
-		for (int i = 0; i < (n / 2); i++)
-			new_values[i] = values[i];
-		
-		search(value, new_values, (n / 2));
-
-	}
-	else if (value > values[index] && n > 1)
-	{
-		for (int i = 1; i < (n / 2); i++)
-			new_values[i - 1] = values[index + i];
-
-		search(value, new_values, (n / 2));
-	}
-	else
-		return true;
-
-	// if true was not returned, return false
-	return false;
+	
+	return true;
 }
 
 /**
