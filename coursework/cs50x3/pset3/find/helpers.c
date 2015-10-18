@@ -26,11 +26,13 @@ bool search(int value, int values[], int size)
 
 		if (values[cursor] < value)
 		{
-			
+			size -= (cursor + 1);
+			cursor--;
 		}
 		else if (value[cursor] > value)
 		{
-	
+			start = (cursor + 1);
+			cursor++;
 		}
 
 		if (size < 1 || start >= size)

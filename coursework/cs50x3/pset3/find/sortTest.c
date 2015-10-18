@@ -1,5 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
+#include <cs50.h>
 
 #include "helpers.h"
 
@@ -19,6 +20,14 @@ int main(int argc, char* argv[])
 		printf("%d ", unsorted[i]);	
 
 	printf("\n");
+	
+	printf("Enter the number to find: ");
+	int value = GetInt();
+
+	if (search(value, unsorted, (argc - 1)))
+		printf("It is in the list!\n");
+	else
+		printf("It is not in the list!\n");
 
 	return 0;
 }
